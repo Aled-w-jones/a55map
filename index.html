@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A55 Traffic Cameras</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/dark/main.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+      document.addEventListener("keydown", function (e) {
+        var k = e.key;
+        if (e.keyCode === 123) { e.preventDefault(); return; }
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (k === "I" || k === "J" || k === "C")) { e.preventDefault(); }
+        if ((e.ctrlKey || e.metaKey) && (k === "u" || k === "U" || k === "s" || k === "S")) { e.preventDefault(); }
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <header>
+        <h1>A55 Cameras</h1>
+        <div id="status-summary">Loading…</div>
+      </header>
+      <input id="filter" type="search" placeholder="Filter cameras…" autocomplete="off" />
+      <ul id="camera-list"></ul>
+    </aside>
+    <div id="viewDiv"></div>
+  </div>
+  <script src="https://js.arcgis.com/4.30/"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
